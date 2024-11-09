@@ -40,10 +40,25 @@ Areca nut quality sorting is a manual process done by farmers, there are more th
 ## 🎯 Key Objectives
 Image Classification: Identify three quality levels of areca nuts.
 
-
 ## Contributors
 
 [Subrahmanya Gaonkar](https://github.com/negativenagesh)
 
 ## 🛠️ License 
 [Apache License 2.0](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/LICENSE)
+
+## References
+1. Image Processing in OpenCV
+   https://docs.opencv.org/4.x/d2/d96/tutorial_py_table_of_contents_imgproc.html
+
+2. The Complete Guide to Image Preprocessing Techniques in Python
+   https://medium.com/@maahip1304/the-complete-guide-to-image-preprocessing-techniques-in-python-dca30804550c
+
+3. Basic Operations on Images
+   https://docs.opencv.org/4.x/d3/df2/tutorial_py_basic_ops.html
+
+4. CLAHE (Contrast Limited Adaptive Histogram Equalization)
+   https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html
+
+5. Sharpening image in OpenCV
+   https://medium.com/@sajjadhadi/mastering-opencv2-in-15-days-day-3-image-filtering-and-enhancement-ae1095f09aa5
