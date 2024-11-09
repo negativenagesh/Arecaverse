@@ -1,4 +1,6 @@
 opencv-python
 fireducks
+pandas
+os
 numpy
 matplotlib
