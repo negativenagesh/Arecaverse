@@ -31,6 +31,11 @@ Areca nut quality sorting is a manual process done by farmers, there are more th
 
 <div align="center">
   
+  ![image](https://github.com/user-attachments/assets/a84089b3-549b-4395-9d45-3acb3f683039)
+</div>
+
+<div align="center">
+  
   ![image](https://github.com/user-attachments/assets/7bb863a9-1888-47ca-ba26-2fab39201251)
   
   source: https://agriplus.in/price/arecanut-betelnut-supari/karnataka/karwar-uttar-kannad/yellapur
