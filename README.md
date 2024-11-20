@@ -25,6 +25,8 @@ source areca/Scripts/activate
 ```bash
 pip install -r required.txt
 ```
+## Arecanut(Betelnut/Supari) prices in Yellapur market, Karwar(Uttar Kannad), Karnataka
+
 <div align="center">
   
   ![image](https://github.com/user-attachments/assets/7bb863a9-1888-47ca-ba26-2fab39201251)
