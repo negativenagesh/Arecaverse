@@ -76,6 +76,6 @@ def process_arecanut_image(input_image_path, output_folder):
     output_path = os.path.join(output_folder, "processed_image.png")
 
     remove_background(input_image_path, temp_path)
-    preprocess_image(temp_path, output_path)
+    preprocess_images(temp_path, output_path)
 
     return output_path
