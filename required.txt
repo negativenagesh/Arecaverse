@@ -5,3 +5,4 @@ matplotlib
 rembg
 pillow
 streamlit
+setuptools
