@@ -38,8 +38,8 @@ def preprocess_image(input_image_path, output_image_path):
                                    [-1, -1, -1]])
     sharpened_image = cv2.filter2D(clahe_img, -1, sharpening_kernel)
 
-    sobelx = cv2.Sobel(blurred_img, cv2.CV_64F, 1, 0, ksize=3)
-    sobely = cv2.Sobel(blurred_img, cv2.CV_64F, 0, 1, ksize=3)
+    sobelx = cv2.Sobel(sharpened_image, cv2.CV_64F, 1, 0, ksize=3)
+    sobely = cv2.Sobel(sharpened_image, cv2.CV_64F, 0, 1, ksize=3)
 
     gradient_magnitude = np.hypot(sobelx, sobely)
     gradient_magnitude = np.uint8(255 * gradient_magnitude / np.max(gradient_magnitude))
