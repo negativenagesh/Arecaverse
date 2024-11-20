@@ -40,6 +40,16 @@ Areca nut quality sorting is a manual process done by farmers, there are more th
   <img src="https://github.com/user-attachments/assets/e6e07296-2b03-419d-b76e-53263da302d9" alt="Image 4" width="200">
 </div>
 
+2. Resizing (128 * 128)
+3. Grayscale convertion
+4. GaussianBlur
+5. [CLAHE convertion:](https://docs.opencv.org/4.x/d5/daf/tutorial_py_histogram_equalization.html)
+6. [Sharpening image:](https://medium.com/@sajjadhadi/mastering-opencv2-in-15-days-day-3-image-filtering-and-enhancement-ae1095f09aa5)
+7. Canny edge detector:
+   source: https://github.com/cynicphoenix/Canny-Edge-Detector
+           https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html
+8. Normalizing image
+    
 
 <div align="center">
   
