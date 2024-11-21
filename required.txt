@@ -6,3 +6,5 @@ rembg
 pillow
 streamlit
 setuptools
+
+-e .
