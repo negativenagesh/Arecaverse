@@ -28,10 +28,10 @@ if uploaded_file is not None:
 
             # Process the temporary file
             output_folder = "output/"
-            output_path = process_arecanut_image(temp_file_path, output_folder)
+            output_path = process_arecanut_image(temp_file_path)
 
             # Display the processed image
-            st.image(output_path, caption="Processed Image", use_column_width=True)
+            st.image(output_path, use_container_width=True)
             st.success("Image processed successfully!")
         except Exception as e:
             st.error(f"Error: {e}")
