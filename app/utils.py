@@ -1,6 +1,4 @@
-import os
 import tempfile
-
 
 def save_uploaded_file(uploaded_file):
     """

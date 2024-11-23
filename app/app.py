@@ -1,5 +1,5 @@
 import streamlit as st
-from preprocessing import process_arecanut_image
+from preprocessing import process_arecanut_image_steps
 from utils import save_uploaded_file
 
 
@@ -9,9 +9,12 @@ st.title("Arecanut Image Processing App")
 st.write(
     """
     This app allows you to upload an arecanut image and processes it through the following steps:
-    - Converts the image to PNG format.
     - Removes the background.
-    - Preprocesses the image (resizing, grayscale, CLAHE, sharpening, and Sobel gradient).
+    - Resizes the image to 128x128.
+    - Converts the image to grayscale.
+    - Applies CLAHE for contrast enhancement.
+    - Applies sharpening.
+    - Computes Sobel gradient magnitude.
     """
 )
 
@@ -23,15 +26,17 @@ if uploaded_file is not None:
 
     if st.button("Process Image"):
         try:
-            # Save uploaded file
+            # Save uploaded file temporarily
             temp_file_path = save_uploaded_file(uploaded_file)
 
-            # Process the temporary file
-            output_folder = "output/"
-            output_path = process_arecanut_image(temp_file_path)
+            # Process the image step by step
+            steps = process_arecanut_image_steps(temp_file_path)
 
-            # Display the processed image
-            st.image(output_path, use_container_width=True)
+            # Display each processing step
+            for step_name, step_image in steps.items():
+                st.subheader(step_name)
+                st.image(step_image, use_column_width=True)
+
             st.success("Image processed successfully!")
         except Exception as e:
             st.error(f"Error: {e}")
