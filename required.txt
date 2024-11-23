@@ -3,6 +3,8 @@ pandas
 numpy
 seaborn
 matplotlib
+scikit-learn
+plotly
 rembg
 pillow
 streamlit
