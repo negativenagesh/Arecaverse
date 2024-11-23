@@ -1,6 +1,7 @@
 opencv-python
 pandas
 numpy
+seaborn
 matplotlib
 rembg
 pillow
