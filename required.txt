@@ -6,6 +6,5 @@ rembg
 pillow
 streamlit
 setuptools
-labelImg
 
 -e .
