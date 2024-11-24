@@ -1,4 +1,5 @@
 opencv-python
+fireducks
 pandas
 numpy
 seaborn
