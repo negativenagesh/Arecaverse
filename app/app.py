@@ -62,6 +62,25 @@ st.markdown(
         height: 40px;  /* Increased height */
         background-color: transparent;  /* Remove white background */
     }
+    .footer {
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    .footer a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+    .footer a img {
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -137,10 +156,33 @@ with col2:
         articles = get_agriculture_news()
         
         if articles:
-            for article in articles[:30]:  # Limit displayed articles to the top 30
+            for article in articles[:10]:  # Limit displayed articles to the top 10
                 st.markdown(f"**{article['title']}**")
                 st.write(f"Source: {article['source']['name']}")
                 st.write(f"[Read more]({article['url']})")
                 st.write("---")
+            
+            if len(articles) > 10:
+                if st.button("See More News"):
+                    for article in articles[10:15]:
+                        st.markdown(f"**{article['title']}**")
+                        st.write(f"Source: {article['source']['name']}")
+                        st.write(f"[Read more]({article['url']})")
+                        st.write("---")
         else:
             st.write("No news available at the moment.")
+
+# Footer
+st.markdown(
+    """
+    <div class="footer">
+        <p>&copy; 2024 Arecaverse. All rights reserved.</p>
+        <p>
+            <a href="https://github.com/negativenagesh/Arecanut-quality-classification" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+            </a>
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
