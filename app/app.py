@@ -47,7 +47,7 @@ with col2:
     articles = get_agriculture_news()
     
     if articles:
-        for article in articles[:10]:  # Display top 5 articles
+        for article in articles[:30]:  # Display top 5 articles
             st.subheader(article['title'])
             st.write(f"Source: {article['source']['name']}")
             st.write(f"[Read more]({article['url']})")
