@@ -47,15 +47,16 @@ st.markdown(
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
+        font-size: 28px;  /* Increased font size */
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 4px;
     }
     .nav-bar a img {
         vertical-align: middle;
-        width: 20px;
-        height: 20px;
+        width: 40px;  /* Increased width */
+        height: 40px;  /* Increased height */
+        background-color: transparent;  /* Remove white background */
     }
     </style>
     """,
@@ -74,7 +75,7 @@ st.markdown(
             <button onclick="window.location.href='#careers'">Careers</button>
             <button onclick="window.location.href='#contact'">Contact</button>
             <button onclick="window.location.href='#login'">Login / Signup</button>
-            <a href="https://github.com/your-repo" target="_blank">
+            <a href="https://github.com/negativenagesh/Arecanut-quality-classification" target="_blank">
                 <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
             </a>
         </div>
