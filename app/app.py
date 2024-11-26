@@ -27,6 +27,10 @@ def get_agriculture_news():
 st.markdown(
     """
     <style>
+    .stApp {
+        background-color: black;
+        color: white;
+    }
     .title-container {
         display: flex;
         align-items: center;
