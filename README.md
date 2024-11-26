@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align='center'>
-  Enhancing quality grading for Arecanut farmers with Machine learning
+  Enhancing quality grading of areca nut for Arecanut farmers with Machine learning
 </h4>
 
 ![areca-nut-6344085](https://github.com/user-attachments/assets/45d34d8e-4ce4-4016-8bdb-deec2ba352ec)
@@ -15,16 +15,35 @@
 ```bash
 git clone https://github.com/yourusername/arecanut-quality-classification.git
 ```
-3. Create venv:
+3. Create venv or do 4th step:
 ```bash
 py -3.12 -m venv areca
 
 source areca/Scripts/activate
 ```
-3. Install dependencies:
+4. Run setup.sh
+   
+   Make the script executable(if it is not already):
+```bash
+ chmod +x setup.sh
+```
+  Run the script:
+```bash
+ ./setup.sh
+```
+  activate env:
+```bash
+  source areca/bin/activate
+```
+5. Install dependencies:
 ```bash
 pip install -r required.txt
 ```
+6. Run the app:
+```python
+streamlit run app/app.py
+```
+
 ## Arecanut(Betelnut/Supari) prices in Yellapur market, Karwar(Uttar Kannad), Karnataka
 
 <div align="center">
