@@ -24,65 +24,65 @@ def get_agriculture_news():
 # Streamlit App
 
 # Center the title with bold styling and larger font size
-st.markdown(
-    """
-    <h1 style='text-align: left; font-weight: bold; font-size: 3em; margin-top: -50px;'>Arecaverse</h1>
-    """,
-    unsafe_allow_html=True,
-)
+col1, col2 = st.columns([1, 10])
+with col1:
+    st.image('/workspaces/Arecanut-quality-classification/app/arecanut-logo.png', width=50)
+with col2:
+    st.markdown("<h1 style='font-weight: bold; font-size: 3em; margin: 0;'>Arecaverse</h1>", unsafe_allow_html=True)
 
 # Create a two-column layout at the top for introduction and news
 col1, col2 = st.columns([2, 1])  # Adjust widths as needed
 
 # Column 1: Arecaverse Title and Intro
 with col1:
-    st.write("### Arecanut Image Processing")
-    st.write(
-        """
-        This app allows you to upload an arecanut image and processes it through the following steps:
-        - Removes the background.
-        - Resizes the image to 128x128.
-        - Converts the image to grayscale.
-        - Applies CLAHE for contrast enhancement.
-        - Applies sharpening.
-        - Computes Sobel gradient magnitude.
-        """
-    )
+    with st.expander("Arecanut Image Processing", expanded=True):
+        st.write(
+            """
+            This app allows you to upload an arecanut image and processes it through the following steps:
+            - Removes the background.
+            - Resizes the image to 128x128.
+            - Converts the image to grayscale.
+            - Applies CLAHE for contrast enhancement.
+            - Applies sharpening.
+            - Computes Sobel gradient magnitude.
+            """
+        )
 
-    uploaded_file = st.file_uploader("Upload an Arecanut Image", type=["jpg", "jpeg", "png", "bmp", "tiff", "webp"])
+        uploaded_file = st.file_uploader("Upload an Arecanut Image", type=["jpg", "jpeg", "png", "bmp", "tiff", "webp"])
 
-    if uploaded_file is not None:
-        st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+        if uploaded_file is not None:
+            st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
 
-        if st.button("Process Image"):
-            try:
-                # Save uploaded file temporarily
-                temp_file_path = save_uploaded_file(uploaded_file)
+            if st.button("Process Image"):
+                try:
+                    # Save uploaded file temporarily
+                    temp_file_path = save_uploaded_file(uploaded_file)
 
-                # Process the image step by step
-                steps = process_arecanut_image_steps(temp_file_path)
+                    # Process the image step by step
+                    steps = process_arecanut_image_steps(temp_file_path)
 
-                # Display each processing step
-                for step_name, step_image in steps.items():
-                    st.subheader(step_name)
-                    st.image(step_image, use_column_width=True)
+                    # Display each processing step
+                    for step_name, step_image in steps.items():
+                        st.subheader(step_name)
+                        st.image(step_image, use_column_width=True)
 
-                st.success("Image processed successfully!")
-            except Exception as e:
-                st.error(f"Error: {e}")
+                    st.success("Image processed successfully!")
+                except Exception as e:
+                    st.error(f"Error: {e}")
 
 # Column 2: Agriculture News
 with col2:
-    st.subheader("Latest Agriculture News in India")
-    
-    # Get agriculture news
-    articles = get_agriculture_news()
-    
-    if articles:
-        for article in articles[:5]:  # Limit displayed articles to the top 5
-            st.markdown(f"**{article['title']}**")
-            st.write(f"Source: {article['source']['name']}")
-            st.write(f"[Read more]({article['url']})")
-            st.write("---")
-    else:
-        st.write("No news available at the moment.")
+    with st.expander("Latest Agriculture News in India", expanded=True):
+        st.subheader("Latest Agriculture News in India")
+        
+        # Get agriculture news
+        articles = get_agriculture_news()
+        
+        if articles:
+            for article in articles[:30]:  # Limit displayed articles to the top 30
+                st.markdown(f"**{article['title']}**")
+                st.write(f"Source: {article['source']['name']}")
+                st.write(f"[Read more]({article['url']})")
+                st.write("---")
+        else:
+            st.write("No news available at the moment.")
