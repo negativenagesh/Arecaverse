@@ -11,5 +11,6 @@ rembg
 pillow
 streamlit
 setuptools
+onnxruntime
 
 -e .
