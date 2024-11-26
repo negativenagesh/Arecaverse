@@ -30,9 +30,32 @@ st.markdown(
     .title-container {
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
     .title-container img {
         margin-right: 10px;
+    }
+    .nav-bar {
+        display: flex;
+        gap: 20px;
+    }
+    .nav-bar button, .nav-bar a {
+        background-color: transparent;
+        color: #4CAF50;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .nav-bar a img {
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
     }
     </style>
     """,
@@ -42,8 +65,19 @@ st.markdown(
 st.markdown(
     """
     <div class="title-container">
-        <img src="/workspaces/Arecanut-quality-classification/app/arecanut-logo.png" width="50">
-        <h1 style='font-weight: bold; font-size: 3em; margin: 0;'>Arecaverse</h1>
+        <div style="display: flex; align-items: center;">
+            <img src="/workspaces/Arecanut-quality-classification/app/arecanut-logo.png" width="50">
+            <h1 style='font-weight: bold; font-size: 3em; margin: 0;'>Arecaverse</h1>
+        </div>
+        <div class="nav-bar">
+            <button onclick="window.location.href='#about'">About</button>
+            <button onclick="window.location.href='#careers'">Careers</button>
+            <button onclick="window.location.href='#contact'">Contact</button>
+            <button onclick="window.location.href='#login'">Login / Signup</button>
+            <a href="https://github.com/your-repo" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+            </a>
+        </div>
     </div>
     """,
     unsafe_allow_html=True
