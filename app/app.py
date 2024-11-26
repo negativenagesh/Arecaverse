@@ -24,11 +24,30 @@ def get_agriculture_news():
 # Streamlit App
 
 # Center the title with bold styling and larger font size
-col1, col2 = st.columns([1, 10])
-with col1:
-    st.image('/workspaces/Arecanut-quality-classification/app/arecanut-logo.png', width=50)
-with col2:
-    st.markdown("<h1 style='font-weight: bold; font-size: 3em; margin: 0;'>Arecaverse</h1>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+    .title-container {
+        display: flex;
+        align-items: center;
+    }
+    .title-container img {
+        margin-right: 10px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    """
+    <div class="title-container">
+        <img src="/workspaces/Arecanut-quality-classification/app/arecanut-logo.png" width="50">
+        <h1 style='font-weight: bold; font-size: 3em; margin: 0;'>Arecaverse</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Create a two-column layout at the top for introduction and news
 col1, col2 = st.columns([2, 1])  # Adjust widths as needed
