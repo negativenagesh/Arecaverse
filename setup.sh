@@ -15,5 +15,10 @@ if [ -f "requirements.txt" ]; then
   pip install -r requirements.txt
 fi
 
+# Install dependencies if required.txt exists
+if [ -f "required.txt" ]; then
+  pip install -r required.txt
+fi
+
 # Confirm Python version
 python --version
