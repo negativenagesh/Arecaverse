@@ -43,6 +43,11 @@ pip install -r required.txt
 ```python
 streamlit run app/app.py
 ```
+## Frontend
+<div>
+  
+  ![image](https://github.com/user-attachments/assets/7ec75719-617d-4768-81b1-ad5ce5a2e59d)
+</div>
 
 ## Arecanut(Betelnut/Supari) prices in Yellapur market, Karwar(Uttar Kannad), Karnataka
 
