@@ -2,6 +2,16 @@
   🌴 Arecanut Quality Classification 🌴
 </h1>
 
+<div align="center">
+
+[![GitHub stars](https://img.shields.io/github/stars/negativenagesh/Arecanut-quality-classification)](https://github.com/negativenagesh/Arecanut-quality-classification/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/negativenagesh/Arecanut-quality-classification)](https://github.com/negativenagesh/Arecanut-quality-classification/network)
+[![GitHub issues](https://img.shields.io/github/issues/negativenagesh/Arecanut-quality-classification)](https://github.com/negativenagesh/Arecanut-quality-classification/issues)
+[![GitHub license](https://img.shields.io/github/license/negativenagesh/Arecanut-quality-classification)](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/LICENSE)
+
+</div>
+
+
 <h4 align='center'>
   Enhancing quality grading of areca nut for Arecanut farmers with Machine learning
 </h4>
