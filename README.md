@@ -43,11 +43,14 @@ pip install -r required.txt
 ```python
 streamlit run app/app.py
 ```
-## Frontend
-<div>
+## Problem Statement
+
+<div align="center">
   
-  ![image](https://github.com/user-attachments/assets/7ec75719-617d-4768-81b1-ad5ce5a2e59d)
+  ![image](https://github.com/user-attachments/assets/a84089b3-549b-4395-9d45-3acb3f683039)
 </div>
+
+Areca nut quality sorting is a manual process done by farmers, there are more than 6 categories in quality(1st Chali, 2nd Chali, 3rd Chali, 1st Gotu, 2nd Gotu, Kole etc). For example: where I live people make like more than 200 quintols of arecanut(1 quintol=100kg). To sort 1 quintol of areca nut it takes more than a day for 1 farmer who is strong and fit, imagine a household where a farmer grows more than 200 quintol arecanut and where he alone have to do quality sort, it takes more than 40 days for this process, if you consider my area, these days getting labourers is also a tough work, if we get labourers for morning to evening with food, snacks, drinks they ask minimum 900 Rupees, suppose if we get 1 labourer, he may be faster in sorting, but he cant finish 1 quintol in less than 2 hours or so. If you consider areca nut whole sellers they buy thousands of quintols directly without sorting, so if the arecanut is sorted it gets good price(see below graph) they look for hundreads of labourers to sort this manually which might cost them high. Arecanut peeling machine was introduced in 2008(Credit: Google), it does only peeling with less accuracy and there is no machine for quality sorting which uses AI, so when I was thnking for project idea this problem flashed for me which is seen in each and every household in my area and in entire Karnataka region, so this project is aimed to make arecanut quality sorting without human internvention.
 
 ## Arecanut(Betelnut/Supari) prices in Yellapur market, Karwar(Uttar Kannad), Karnataka
 
@@ -58,16 +61,19 @@ streamlit run app/app.py
   source: https://agriplus.in/price/arecanut-betelnut-supari/karnataka/karwar-uttar-kannad/yellapur
 </div>
 
-## Problem Statement
+## Dataset: 
 
-<div align="center">
-  
-  ![image](https://github.com/user-attachments/assets/a84089b3-549b-4395-9d45-3acb3f683039)
+I didn't find dataset of arecanut images anywhere, so I took pictures of 3 qualities(1, 2, 3) of arecanut images from Nothing phone 2 and here you can find the link to download the images: [kaggle](https://www.kaggle.com/datasets/subrahmanya090/arecanut) 
+
+#### Sample images:
+
+<div align="center" style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/user-attachments/assets/18195188-d94c-46e6-ab94-24997d598109" alt="Image 1" width="200">
+  <img src="https://github.com/user-attachments/assets/42472d13-a1e1-4f04-9129-676884ef478d" alt="Image 1" width="200">
+  <img src="https://github.com/user-attachments/assets/1ad17f1c-7765-47f2-b0da-89f35342de44" alt="Image 1" width="200">
 </div>
 
-Areca nut quality sorting is a manual process done by farmers, there are more than 6 categories in quality(1st Chali, 2nd Chali, 3rd Chali, 1st Gotu, 2nd Gotu, Kole etc). For example: where I live people make like more than 200 quintols of arecanut(1 quintol=100kg). To sort 1 quintol of areca nut it takes more than continuous 3 hours for 1 farmer who is strong and fit, imagine a household where a farmer grows more than 200 quintol arecanut and where he alone have to do quality sort, it takes more than 40 days for this process, if you consider my area, these days getting labourers is also a tough work, if we get labourers for morning to evening with food, snacks, drinks they ask minimum 900 Rupees, suppose if we get 1 labourer, he may be faster in sorting, but he cant finish 1 quintol in less than 2 hours or so. If you consider areca nut whole sellers they buy thousands of quintols directly without sorting, so if the arecanut is sorted it gets good price(see below graph) they look for hundreads of labourers to sort this manually which might cost them high. Arecanut peeling machine was introduced in 2008(Credit: Google), it does only peeling with less accuracy and there is no machine for quality sorting which uses AI, so when I was thnking for project idea this problem flashed for me which is seen in each and every household in my area and in entire Karnataka region, so this project is aimed to make arecanut quality sorting without human internvention.
-
-## Image preprocessing steps I have taken:
+## Image preprocessing:
 
 1. Image background removal from - [Rembg](https://github.com/danielgatis/rembg)
    
