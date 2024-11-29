@@ -27,7 +27,7 @@ source areca/Scripts/activate
 ```bash
  chmod +x setup.sh
 ```
-  Run the script:
+  Run the script:(includes all the dependencies, libraries etc..)
 ```bash
  ./setup.sh
 ```
@@ -35,7 +35,7 @@ source areca/Scripts/activate
 ```bash
   source areca/bin/activate
 ```
-5. Install dependencies:
+5. Install dependencies:(if followed step 4 don't run it simply)
 ```bash
 pip install -r required.txt
 ```
