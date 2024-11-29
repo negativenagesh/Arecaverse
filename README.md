@@ -63,7 +63,7 @@ Areca nut quality sorting is a manual process done by farmers, there are more th
 
 ## Dataset: 
 
-I didn't find dataset of arecanut images anywhere, so I took pictures of 3 qualities(1, 2, 3) of arecanut images from Nothing phone 2 and here you can find the link to download the images: [kaggle](https://www.kaggle.com/datasets/subrahmanya090/arecanut) 
+I didn't find dataset of arecanut images anywhere, so I took pictures of 3 qualities(1, 2, 3) of arecanut images from Nothing phone 2a and here you can find the link to download the images: [kaggle](https://www.kaggle.com/datasets/subrahmanya090/arecanut) 
 
 #### Sample images:
 
