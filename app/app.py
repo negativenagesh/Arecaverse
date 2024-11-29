@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 import streamlit as st
 import requests
 from preprocessing import process_arecanut_image_steps
 from utils import save_uploaded_file
+
+load_dotenv()
 
 # Set Streamlit page layout to wide
 st.set_page_config(page_title="Arecanut Image Processing", layout="wide")
@@ -173,7 +177,7 @@ translations = {
 
 # Function to fetch agriculture news from NewsAPI
 def get_agriculture_news():
-    api_key = 'ca52de44955649d0a2091e83010e777f'
+    api_key = os.getenv("NEWS_API_KEY")
     url = f"https://newsapi.org/v2/everything?q=agriculture+india&apiKey={api_key}"
     
     try:
@@ -187,7 +191,7 @@ def get_agriculture_news():
 
 # Function to fetch weather information
 def get_weather(location):
-    api_key = "22782d1785b21db9a80b34ea10bc3983"
+    api_key = os.getenv("WEATHER_API_KEY")
     url = f"http://api.weatherstack.com/current?access_key={api_key}&query={location}"
     
     try:
@@ -204,7 +208,7 @@ def get_weather(location):
 # Streamlit App
 
 # Language Selection
-language = st.selectbox("Choose Language", ["English", "हिन्दी", "ಕನ್ನಡ", "മലയാളം", "తెలుగు", "தமிழ்", "日本語"])
+language = st.selectbox("Translate", ["English", "हिन्दी", "ಕನ್ನಡ", "മലയാളം", "తెలుగు", "தமிழ்", "日本語"])
 
 # Get translations for the selected language
 trans = translations[language]
