@@ -12,5 +12,6 @@ pillow
 streamlit
 setuptools
 onnxruntime
+python-dotenv
 
 -e .
