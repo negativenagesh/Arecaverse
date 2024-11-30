@@ -49,7 +49,19 @@ source areca/Scripts/activate
 ```bash
 pip install -r required.txt
 ```
-6. Run the app:
+6. To use API: 
+  Create a new file named .env in the root directory of the project:
+  a. Get your free API keys from here by signing in:
+     [newsapi.org](https://newsapi.org/)
+     [weatherstack.com](https://weatherstack.com/)
+  
+  b. add your API keys to .env in the same manner like below
+```env
+NEWS_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxxx
+WEATHER_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+8. Run the app:
 ```python
 streamlit run app/app.py
 ```
