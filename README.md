@@ -19,7 +19,7 @@
 ![areca-nut-6344085](https://github.com/user-attachments/assets/45d34d8e-4ce4-4016-8bdb-deec2ba352ec)
 
 ## ⚙️ Setup and Installation
-1. Fork this repo by clicking 'fork' in right side above, then follow below steps 
+1. Star and Fork this repo by clicking 'fork' in right side above, then follow below steps 
 
 2. Clone this repo:
 ```bash
@@ -49,13 +49,16 @@ source areca/Scripts/activate
 ```bash
 pip install -r required.txt
 ```
-6. To use API: 
-  Create a new file named .env in the root directory of the project:
-  a. Get your free API keys from here by signing in:
-     [newsapi.org](https://newsapi.org/)
-     [weatherstack.com](https://weatherstack.com/)
-  
-  b. add your API keys to .env in the same manner like below
+6. API set-up: 
+ ```
+ Create a new file named .env in the root directory of the project:
+ Get your free API keys from here by signing in:
+```
+[newsapi.org](https://newsapi.org/) | 
+[weatherstack.com](https://weatherstack.com/)
+```
+  Add your API keys to .env in the same manner like below:
+```
 ```env
 NEWS_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxxx
 WEATHER_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxxx
@@ -72,7 +75,7 @@ streamlit run app/app.py
   ![image](https://github.com/user-attachments/assets/a84089b3-549b-4395-9d45-3acb3f683039)
 </div>
 
-Areca nut quality sorting is a manual process done by farmers, there are more than 6 categories in quality(1st Chali, 2nd Chali, 3rd Chali, 1st Gotu, 2nd Gotu, Kole etc). For example: where I live people make like more than 200 quintols of arecanut(1 quintol=100kg). To sort 1 quintol of areca nut it takes more than a day for 1 farmer who is strong and fit, imagine a household where a farmer grows more than 200 quintol arecanut and where he alone have to do quality sort, it takes more than 40 days for this process, if you consider my area, these days getting labourers is also a tough work, if we get labourers for morning to evening with food, snacks, drinks they ask minimum 900 Rupees, suppose if we get 1 labourer, he may be faster in sorting, but he cant finish 1 quintol in less than 2 hours or so. If you consider areca nut whole sellers they buy thousands of quintols directly without sorting, so if the arecanut is sorted it gets good price(see below graph) they look for hundreads of labourers to sort this manually which might cost them high. Arecanut peeling machine was introduced in 2008(Credit: Google), it does only peeling with less accuracy and there is no machine for quality sorting which uses AI, so when I was thnking for project idea this problem flashed for me which is seen in each and every household in my area and in entire Karnataka region, so this project is aimed to make arecanut quality sorting without human internvention.
+Areca nut quality sorting is a manual process done by farmers, there are more than 6 categories in quality(1st Chali, 2nd Chali, 3rd Chali, 1st Gotu, 2nd Gotu, Kole etc). For example: where I live people make like more than 200 quintols of arecanut(1 quintol=100kg). To sort 1 quintol of areca nut it takes more than a day for 1 farmer who is strong and fit, imagine a household where a farmer grows more than 200 quintol arecanut and where he alone have to do quality sort, it takes more than 40 days for this process, if you consider my area, these days getting labourers is also a tough work, if we get labourers for morning to evening with food, snacks, drinks they ask minimum 900 Rupees, suppose if we get 1 labourer, he may be faster in sorting, but he cant finish 1 quintol in less than a day or so. If you consider areca nut whole sellers they buy thousands of quintols directly without sorting, so if the arecanut is sorted it gets good price(see below graph) they look for hundreads of labourers to sort this manually which might cost them high. Arecanut peeling machine was introduced in 2008(Credit: Google), it does only peeling with less accuracy and there is no machine for quality sorting which uses AI, so when I was thnking for project idea this problem flashed for me which is seen in each and every household in my area and in entire Karnataka region, so this project is aimed to make arecanut quality sorting without human internvention.
 
 ## Arecanut(Betelnut/Supari) prices in Yellapur market, Karwar(Uttar Kannad), Karnataka
 
