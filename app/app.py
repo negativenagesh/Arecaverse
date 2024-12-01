@@ -264,7 +264,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 # Load the pre-trained model
-model_path = "/workspaces/Arecanut-quality-classification/app/modeldtree"
+model_path = "/workspaces/Arecanut-quality-classification/app/rf(baggging+dtree)"
 with open(model_path, "rb") as model_file:
     model = pickle.load(model_file)
 
