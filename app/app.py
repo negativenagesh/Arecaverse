@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import streamlit as st
 import requests
 from preprocessing import process_arecanut_image_steps
+from preprocessing import preprocess_and_convert_to_array
 from utils import save_uploaded_file
 
 load_dotenv()
@@ -10,7 +11,7 @@ load_dotenv()
 # Set Streamlit page layout to wide
 st.set_page_config(page_title="Arecanut Image Processing", layout="wide")
 
-# Translation dictionary
+# Translation dictionary (only English retained)
 translations = {
     "English": {
         "title": "Arecanut Image Processing and Quality classification",
@@ -34,144 +35,6 @@ translations = {
         "step6": "Computes Sobel gradient magnitude.",
         "drag_drop": "Drag and drop file here",
         "limit": "Limit 200MB per file • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
-    },
-    "हिन्दी": {
-        "title": "अरेकेनट छवि प्रसंस्करण और गुणवत्ता वर्गीकरण",
-        "upload": "एक अरेकेनट छवि अपलोड करें",
-        "process": "छवि संसाधित करें",
-        "weather_info": "मौसम की जानकारी",
-        "enter_location": "मौसम के लिए स्थान दर्ज करें",
-        "get_weather": "मौसम प्राप्त करें",
-        "news": "भारत में नवीनतम कृषि समाचार",
-        "see_more_news": "अधिक समाचार देखें",
-        "about": "के बारे में",
-        "careers": "करियर",
-        "contact": "संपर्क करें",
-        "login_signup": "लॉगिन / साइनअप",
-        "intro": "यह ऐप आपको एक अरेकेनट छवि अपलोड करने और निम्नलिखित चरणों के माध्यम से इसे संसाधित करने की अनुमति देता है:",
-        "step1": "पृष्ठभूमि को हटा देता है।",
-        "step2": "छवि का आकार 128x128 में बदलता है।",
-        "step3": "छवि को ग्रेस्केल में बदलता है।",
-        "step4": "कॉन्ट्रास्ट वृद्धि के लिए CLAHE लागू करता है।",
-        "step5": "शार्पनिंग लागू करता है।",
-        "step6": "सोबेल ग्रेडिएंट परिमाण की गणना करता है।",
-        "drag_drop": "यहां फ़ाइल खींचें और छोड़ें",
-        "limit": "प्रति फ़ाइल 200MB की सीमा • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
-    },
-    "ಕನ್ನಡ": {
-        "title": "ಅರೆಕನಟ್ ಚಿತ್ರ ಸಂಸ್ಕರಣೆ ಮತ್ತು ಗುಣಮಟ್ಟ ವರ್ಗೀಕರಣ",
-        "upload": "ಅರೆಕನಟ್ ಚಿತ್ರವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಿ",
-        "process": "ಚಿತ್ರವನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಿ",
-        "weather_info": "ಹವಾಮಾನ ಮಾಹಿತಿ",
-        "enter_location": "ಹವಾಮಾನಕ್ಕಾಗಿ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ",
-        "get_weather": "ಹವಾಮಾನ ಪಡೆಯಿರಿ",
-        "news": "ಭಾರತದಲ್ಲಿ ಇತ್ತೀಚಿನ ಕೃಷಿ ಸುದ್ದಿ",
-        "see_more_news": "ಇನ್ನಷ್ಟು ಸುದ್ದಿಗಳನ್ನು ನೋಡಿ",
-        "about": "ಬಗ್ಗೆ",
-        "careers": "ವೃತ್ತಿಗಳು",
-        "contact": "ಸಂಪರ್ಕಿಸಿ",
-        "login_signup": "ಲಾಗಿನ್ / ಸೈನ್ ಅಪ್",
-        "intro": "ಈ ಅಪ್ಲಿಕೇಶನ್ ನಿಮಗೆ ಅರೆಕನಟ್ ಚಿತ್ರವನ್ನು ಅಪ್ಲೋಡ್ ಮಾಡಲು ಮತ್ತು ಕೆಳಗಿನ ಹಂತಗಳ ಮೂಲಕ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಅನುಮತಿಸುತ್ತದೆ:",
-        "step1": "ಹಿನ್ನೆಲೆಯನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ.",
-        "step2": "ಚಿತ್ರದ ಗಾತ್ರವನ್ನು 128x128 ಗೆ ಬದಲಾಯಿಸುತ್ತದೆ.",
-        "step3": "ಚಿತ್ರವನ್ನು ಗ್ರೇಸ್ಕೇಲ್ ಗೆ ಪರಿವರ್ತಿಸುತ್ತದೆ.",
-        "step4": "ವಿರೋಧಾಭಾಸ ಹೆಚ್ಚಿಸಲು CLAHE ಅನ್ನು ಅನ್ವಯಿಸುತ್ತದೆ.",
-        "step5": "ಶಾರ್ಪನಿಂಗ್ ಅನ್ನು ಅನ್ವಯಿಸುತ್ತದೆ.",
-        "step6": "ಸೊಬೆಲ್ ಗ್ರೇಡಿಯಂಟ್ ಪರಿಮಾಣವನ್ನು ಲೆಕ್ಕಹಾಕುತ್ತದೆ.",
-        "drag_drop": "ಫೈಲ್ ಅನ್ನು ಇಲ್ಲಿ ಎಳೆಯಿರಿ ಮತ್ತು ಬಿಡಿ",
-        "limit": "ಪ್ರತಿ ಫೈಲ್ 200MB ಮಿತಿ • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
-    },
-    "മലയാളം": {
-        "title": "അരികനട്ട് ചിത്രം പ്രോസസ്സിംഗ്  ഗുണനിലവാര വർഗ്ഗീകരണം",
-        "upload": "ഒരു അരികനട്ട് ചിത്രം അപ്ലോഡ് ചെയ്യുക",
-        "process": "ചിത്രം പ്രോസസ്സ് ചെയ്യുക",
-        "weather_info": "കാലാവസ്ഥാ വിവരം",
-        "enter_location": "കാലാവസ്ഥയ്ക്ക് സ്ഥലം നൽകുക",
-        "get_weather": "കാലാവസ്ഥ നേടുക",
-        "news": "ഇന്ത്യയിലെ ഏറ്റവും പുതിയ കൃഷി വാർത്തകൾ",
-        "see_more_news": "കൂടുതൽ വാർത്തകൾ കാണുക",
-        "about": "കുറിച്ച്",
-        "careers": "തൊഴിൽ",
-        "contact": "ബന്ധപ്പെടുക",
-        "login_signup": "ലോഗിൻ / സൈൻ അപ്പ്",
-        "intro": "ഈ ആപ്പ് നിങ്ങളെ ഒരു അരികനട്ട് ചിത്രം അപ്ലോഡ് ചെയ്യാനും താഴെ പറയുന്ന ഘട്ടങ്ങളിലൂടെ പ്രോസസ്സ് ചെയ്യാനും അനുവദിക്കുന്നു:",
-        "step1": "പശ്ചാത്തലം നീക്കം ചെയ്യുന്നു.",
-        "step2": "ചിത്രത്തിന്റെ വലുപ്പം 128x128 ആയി മാറ്റുന്നു.",
-        "step3": "ചിത്രം ഗ്രേസ്കെയിലിലേക്ക് മാറ്റുന്നു.",
-        "step4": "കോണ്ട്രാസ്റ്റ് വർദ്ധനവിനായി CLAHE പ്രയോഗിക്കുന്നു.",
-        "step5": "ഷാർപ്പനിംഗ് പ്രയോഗിക്കുന്നു.",
-        "step6": "സോബൽ ഗ്രേഡിയന്റ് മാഗ്നിറ്റ്യൂഡ് കണക്കാക്കുന്നു.",
-        "drag_drop": "ഫയൽ ഇവിടെ വലിച്ചിടുക",
-        "limit": "ഓരോ ഫയലിനും 200MB പരിധി • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
-    },
-    "తెలుగు": {
-        "title": "అరికెనట్ చిత్రం ప్రాసెసింగ్ మరియు నాణ్యత వర్గీకరణ",
-        "upload": "ఒక అరికెనట్ చిత్రాన్ని అప్‌లోడ్ చేయండి",
-        "process": "చిత్రాన్ని ప్రాసెస్ చేయండి",
-        "weather_info": "వాతావరణ సమాచారం",
-        "enter_location": "వాతావరణానికి స్థలాన్ని నమోదు చేయండి",
-        "get_weather": "వాతావరణాన్ని పొందండి",
-        "news": "భారతదేశంలో తాజా వ్యవసాయ వార్తలు",
-        "see_more_news": "మరిన్ని వార్తలు చూడండి",
-        "about": "గురించి",
-        "careers": "కెరీర్స్",
-        "contact": "సంప్రదించండి",
-        "login_signup": "లాగిన్ / సైన్ అప్",
-        "intro": "ఈ యాప్ మీకు ఒక అరికెనట్ చిత్రాన్ని అప్‌లోడ్ చేయడానికి మరియు క్రింది దశల ద్వారా ప్రాసెస్ చేయడానికి అనుమతిస్తుంది:",
-        "step1": "పశ్చాత్తాపాన్ని తొలగిస్తుంది.",
-        "step2": "చిత్రాన్ని 128x128 కి పరిమాణం చేస్తుంది.",
-        "step3": "చిత్రాన్ని గ్రేస్కేల్ కి మార్చుతుంది.",
-        "step4": "కాంట్రాస్ట్ పెంపు కోసం CLAHE ని అన్వయిస్తుంది.",
-        "step5": "షార్పనింగ్ ని అన్వయిస్తుంది.",
-        "step6": "సోబెల్ గ్రేడియంట్ పరిమాణాన్ని లెక్కిస్తుంది.",
-        "drag_drop": "ఫైల్‌ను ఇక్కడ డ్రాగ్ చేసి డ్రాప్ చేయండి",
-        "limit": "ప్రతి ఫైల్ 200MB పరిమితి • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
-    },
-    "தமிழ்": {
-        "title": "அரைக்காடு படம் செயலாக்கம் மற்றும் தர வகைப்படுத்தல்",
-        "upload": "ஒரு அரைக்காடு படத்தை பதிவேற்றவும்",
-        "process": "படத்தை செயலாக்கவும்",
-        "weather_info": "வானிலை தகவல்",
-        "enter_location": "வானிலைக்கு இடத்தை உள்ளிடவும்",
-        "get_weather": "வானிலை பெறவும்",
-        "news": "இந்தியாவில் சமீபத்திய வேளாண்மை செய்திகள்",
-        "see_more_news": "மேலும் செய்திகள் காண்க",
-        "about": "பற்றி",
-        "careers": "வேலைவாய்ப்புகள்",
-        "contact": "தொடர்பு கொள்ளவும்",
-        "login_signup": "உள்நுழைவு / பதிவு",
-        "intro": "இந்த பயன்பாடு உங்களுக்கு ஒரு அரைக்காடு படத்தை பதிவேற்றவும் மற்றும் கீழ்க்கண்ட படிநிலைகளின் மூலம் செயலாக்கவும் அனுமதிக்கிறது:",
-        "step1": "பின்னணியை அகற்றுகிறது.",
-        "step2": "படத்தை 128x128 ஆக மாற்றுகிறது.",
-        "step3": "படத்தை கிரேஸ்கேலாக மாற்றுகிறது.",
-        "step4": "எதிர்மறை அதிகரிப்புக்கு CLAHE ஐப் பயன்படுத்துகிறது.",
-        "step5": "கூர்மையைப் பயன்படுத்துகிறது.",
-        "step6": "சோபெல் சாய்வு அளவை கணக்கிடுகிறது.",
-        "drag_drop": "கோப்பை இங்கே இழுத்து விடவும்",
-        "limit": "ஒவ்வொரு கோப்புக்கும் 200MB வரம்பு • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
-    },
-    "日本語": {
-        "title": "アレカナット画像処理と品質分類",
-        "upload": "アレカナット画像をアップロード",
-        "process": "画像を処理",
-        "weather_info": "天気情報",
-        "enter_location": "天気のために場所を入力",
-        "get_weather": "天気を取得",
-        "news": "インドの最新農業ニュース",
-        "see_more_news": "もっとニュースを見る",
-        "about": "約",
-        "careers": "キャリア",
-        "contact": "連絡先",
-        "login_signup": "ログイン / サインアップ",
-        "intro": "このアプリでは、アレカナット画像をアップロードし、以下のステップで処理することができます:",
-        "step1": "背景を削除します。",
-        "step2": "画像を128x128にリサイズします。",
-        "step3": "画像をグレースケールに変換します。",
-        "step4": "コントラスト強調のためにCLAHEを適用します。",
-        "step5": "シャープ化を適用します。",
-        "step6": "ソーベル勾配の大きさを計算します。",
-        "drag_drop": "ここにファイルをドラッグ＆ドロップ",
-        "limit": "ファイルごとに200MBの制限 • JPG, JPEG, PNG, BMP, TIFF, WEBP, TIF"
     }
 }
 
@@ -207,11 +70,8 @@ def get_weather(location):
 
 # Streamlit App
 
-# Language Selection
-language = st.selectbox("Translate", ["English", "हिन्दी", "ಕನ್ನಡ", "മലയാളം", "తెలుగు", "தமிழ்", "日本語"])
-
-# Get translations for the selected language
-trans = translations[language]
+# Get translations for English
+trans = translations["English"]
 
 # Center the title with bold styling and larger font size
 st.markdown(
@@ -274,6 +134,10 @@ st.markdown(
     .stButton button {
         color: black;  /* Set button text color to black */
     }
+    .stCameraInput {
+        width: 200px;  /* Set the width of the camera input */
+        height: 150px;  /* Set the height of the camera input */
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -326,6 +190,8 @@ with col1:
 
                     # Process the image step by step
                     steps = process_arecanut_image_steps(temp_file_path)
+
+                    image_array = preprocess_and_convert_to_array(temp_file_path)
 
                     # Display each processing step
                     for step_name, step_image in steps.items():

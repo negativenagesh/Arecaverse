@@ -58,3 +58,18 @@ def process_arecanut_image_steps(input_image_path):
     steps["Sobel Gradient Magnitude"] = gradient_magnitude
 
     return steps
+
+def preprocess_and_convert_to_array(image):
+    """
+    Preprocesses the uploaded image and converts it to a 128x128 array.
+    """
+    # Process the image
+    steps = process_arecanut_image_steps(image)
+    
+    # Get the resized image (128x128)
+    resized_image = steps["Resized Image (128x128)"]
+    
+    # Convert to array
+    image_array = np.array(resized_image).flatten()
+    
+    return image_array
