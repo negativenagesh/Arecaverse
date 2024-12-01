@@ -5,6 +5,7 @@ import requests
 from preprocessing import process_arecanut_image_steps
 from preprocessing import preprocess_and_convert_to_array
 from utils import save_uploaded_file
+import pickle
 
 load_dotenv()
 
@@ -193,6 +194,9 @@ with col1:
 
                     image_array = preprocess_and_convert_to_array(temp_file_path)
 
+                    # Store the image array in session state
+                    st.session_state.image_array = image_array
+
                     # Display each processing step
                     for step_name, step_image in steps.items():
                         st.subheader(step_name)
@@ -259,3 +263,23 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+# Load the pre-trained model
+model_path = "/workspaces/Arecanut-quality-classification/app/modeldtree"
+with open(model_path, "rb") as model_file:
+    model = pickle.load(model_file)
+
+# Add a button to check quality after processing the image
+if uploaded_file is not None and st.button("Check Quality"):
+    try:
+        # Ensure the image has been processed
+        if 'image_array' in st.session_state:
+            # Predict the quality using the pre-trained model
+            quality_prediction = model.predict([st.session_state.image_array])
+
+            # Display the prediction result
+            st.subheader("Quality Prediction")
+            st.write(f"The predicted quality of the arecanut is: {quality_prediction[0]}")
+        else:
+            st.error("Please process the image first before checking the quality.")
+    except Exception as e:
+        st.error(f"Error: {e}")
