@@ -11,7 +11,6 @@
 
 </div>
 
-
 <h4 align='center'>
   Enhancing quality grading of areca nut for Arecanut farmers with Machine learning
 </h4>
@@ -68,6 +67,14 @@ WEATHER_API_KEY= xxxxxxxxxxxxxxxxxxxxxxxxx
 ```python
 streamlit run app/app.py
 ```
+## Frontend:
+
+<div align="center">
+
+  ![Screenshot 2024-12-03 004449](https://github.com/user-attachments/assets/30f13ddd-03e3-43a7-8a5c-254c6db36ceb)
+
+</div>
+
 ## Problem Statement
 
 <div align="center">
