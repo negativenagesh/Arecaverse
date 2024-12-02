@@ -175,7 +175,9 @@ Then converted preprocessed images to dataframe each seperately. [Code](https://
 
 ## Model selection and justification:
 
-In [EDA.ipynb](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb),
+In [EDA.ipynb](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb), as this dataset involves multiclass classification(grade - 1,2,3), the first model which comes to mind is DecisionTreeClassifier which is very robust for any type of datsets when it comes to classification which ,
+
+
 
 ## 🎯 Key Objectives
 Image Classification: Identify three quality levels of areca nuts.
