@@ -17,7 +17,7 @@
 
 ![areca-nut-6344085](https://github.com/user-attachments/assets/45d34d8e-4ce4-4016-8bdb-deec2ba352ec)
 
-## ⚙️ Setup and Installation
+## ⚙️ Setup
 1. Star and Fork this repo by clicking 'fork' in right side above, then follow below steps 
 
 2. Clone this repo:
