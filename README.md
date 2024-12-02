@@ -72,6 +72,8 @@ streamlit run app/app.py
 <div align="center">
 
   ![Screenshot 2024-12-03 004449](https://github.com/user-attachments/assets/30f13ddd-03e3-43a7-8a5c-254c6db36ceb)
+  ![Screenshot 2024-12-03 004502](https://github.com/user-attachments/assets/33a079e9-d3ad-458a-8d25-ed0fcce84df6)
+
 
 </div>
 
