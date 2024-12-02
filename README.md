@@ -104,9 +104,6 @@ A machine doesn’t get tired or distracted. It looks at every nut with the same
 3. Increases Productivity:
 Imagine a farmer with a large harvest of arecanuts. Sorting them all manually would take weeks, but with a machine, the work can be done in hours or days. This allows farmers to process more nuts and sell them quickly, leading to better earnings.
 
-
-
-
 ## Market Size and Growth
 
 The areca nut market size in India is estimated at USD 0.92 billion in 2024, with expectations to reach USD 1.16 billion by 2029, reflecting a compound annual growth rate (CAGR) of 4.73% during this period1.
@@ -127,7 +124,7 @@ India remains the largest producer and consumer of areca nuts globally, accounti
   source: https://agriplus.in/price/arecanut-betelnut-supari/karnataka/karwar-uttar-kannad/yellapur
 </div>
 
-## Dataset: 
+## Data collection and preprocessing: 
 
 I didn't find dataset of arecanut images anywhere, so I took pictures of 3 qualities(1, 2, 3) of arecanut images from Nothing phone 2a and here you can find the link to download the images: [kaggle](https://www.kaggle.com/datasets/subrahmanya090/arecanut) 
 
@@ -167,6 +164,18 @@ https://docs.opencv.org/4.x/da/d22/tutorial_py_canny.html
   <img src="https://github.com/user-attachments/assets/d86ecc22-cf83-44eb-9ac5-8e005fd6d2b5" alt="Image 3" width="200">
   <img src="https://github.com/user-attachments/assets/da59b50d-b5e9-4bb4-86ea-67bc985e82ef" alt="Image 4" width="200">
 </div>
+
+Then converted preprocessed images to dataframe each seperately. [Code](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/img-to-df/df.py), then in [EDA.ipynb](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb), removed unnecessary columns like - "image_name", "file_name", and added column "grade" in all hte datasets seperately WRT quality 1,2,3. Combined all 3 datasets, then shuffled the entire datasets. So at this time I had 4 total datasets, 
+
+1. Original dataset with shape - (1582, 16385), with quality 1,2,3 as (559, 16386), (495, 16386), (528, 16386) respectively,
+2. Used SMOTE to oversample quality 2 and 3 to make equal to quality 1 [arecanut.csv](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/arecanut-SMOTE.csv),
+3. Original dataset and smoted dataset didnt perform well, when tested qulaity 3 was not recognized so oversampled only grade 3, [arecanut-SMOTE-oversampled-grade3.csv](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/arecanut-SMOTE-oversampled-grade3.csv),
+4. When oversampled last dataset that also didnt perform well but grade 2 was always correctly classified, so oversampled grade 1 and 3 except 2[arecanut-SMOTE-oversampled-grade1&3](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/arecanut-SMOTE-oversampled-grade1%263%3D1000.csv).
+5. did train-test split with test_size=0.2.
+
+## Model selection and justification:
+
+In [EDA.ipynb](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb),
 
 ## 🎯 Key Objectives
 Image Classification: Identify three quality levels of areca nuts.
