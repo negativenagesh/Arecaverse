@@ -175,8 +175,12 @@ Then converted preprocessed images to dataframe each seperately. [Code](https://
 
 ## Model selection and justification:
 
-In [EDA.ipynb](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb), as this dataset involves multiclass classification(grade - 1,2,3), the first model which comes to mind is DecisionTreeClassifier which is very robust for any type of datsets when it comes to classification which ,
+In [EDA.ipynb](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb), as this dataset involves multiclass classification(grade - 1,2,3), the first model which comes to mind is DecisionTreeClassifier which is very robust for any type of datsets when it comes to classification. 
 
+1. DecisionTreeClassifier(random_state=42, min_samples_split=10, min_samples_leaf=1):[LINK](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb)
+  * Here, before training this model, I have splitted the original dataset, then scaled it, then trained it and got accuracy of 0.64 which is very bad.
+2. Left above model and started doing Ensemble model:[LINK](https://github.com/negativenagesh/Arecanut-quality-classification/blob/main/EDA/eda.ipynb) 
+  * created a function "create_bagged_data(df, n_bags=5)" which takes dataset and creates 5 bags with random sample, but here i had given random_state=42, when I further went ahead, I realized by giving random_state=42, it created 5 bags, but as random_state was 42 in each bag it was random data but all bags had same data. Then in this function each bag had train_test_split with test_size=0.2. Then further with these model - DecisionTreeClassifier(random_state=42, min_samples_split=10, min_samples_leaf=1) all bags were trained and tested and with cross_val_score, as each bag had same data, got the cross_val_score = 0.77 for all 5 bag, and test accuracy as 0.86 which is pretty good. In this same link itself you can find confusion matrix as well.
 
 
 ## 🎯 Key Objectives
