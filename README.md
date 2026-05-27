@@ -71,6 +71,9 @@ streamlit run app/app.py
 
 <div align="center">
 
+https://github.com/user-attachments/assets/d2e7abeb-9f66-412c-a0fd-67628bf5b25f
+
+
 https://github.com/user-attachments/assets/23880484-78c3-45e9-84fa-61c84e819cfa
 
 </div>
